@@ -4,7 +4,7 @@ const router = express.Router();
 const Person = require('./../models/Person')
 
 // Create User
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const data = req.body
 
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 // Parameterized URL
 router.get('/:work', async(req, res) => {
     try {
-        const workType = req.params.workType;
+        const workType = req.params.work;
 
         if (workType == 'chef' || workType == 'manager' || workType == 'waiter') {
             const response = await Person.find({work: workType});
